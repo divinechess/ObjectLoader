@@ -4,9 +4,6 @@ import android.content.Context;
 import android.opengl.GLES20;
 import android.opengl.GLSurfaceView.Renderer;
 
-import com.android.objectloader.objectloader.LoggerConfig;
-import com.android.objectloader.objectloader.R;
-
 import java.nio.FloatBuffer;
 import java.nio.ShortBuffer;
 
@@ -28,12 +25,7 @@ import static android.opengl.GLES20.glVertexAttribPointer;
 import static android.opengl.GLES20.glViewport;
 
 
-
-
-
-
-
-    public class ObjRenderer  implements Renderer {
+public class ObjRenderer extends GroupObject  implements Renderer {
 
         private static final String A_POSITION = "a_Position";
         private int aPositionLocation;
@@ -51,7 +43,12 @@ import static android.opengl.GLES20.glViewport;
 
 //        public GroupObject GroupObjectReturn; //
         public ObjRenderer(Context context) {
-            this.context = context;
+            // this.context = context;
+
+            new Model(R.raw.cube_obj, this.context = context);
+
+
+
 
 
 //            float[] tableVerticesWithTriangles = {
@@ -110,7 +107,7 @@ import static android.opengl.GLES20.glViewport;
 
            // glVertexAttribPointer(aPositionLocation, POSITION_COMPONENT_COUNT, GL_FLOAT,
            //       false, 0, vertexData);
-            GroupObjectgetVertices().position(0);
+            getVertices().position(0);
             GLES20.glVertexAttribPointer(aPositionLocation, POSITION_COMPONENT_COUNT, GL_FLOAT,
                     false, 0, getVertices());
 

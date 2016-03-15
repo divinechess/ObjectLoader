@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
                 glSurfaceView.setEGLContextClientVersion(2);
 
                 // Assign our renderer.
-                glSurfaceView.setRenderer(new GroupObject (this));
+                glSurfaceView.setRenderer(new ObjRenderer (this));
                 rendererSet = true;
             } else {
 
@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public boolean onCreateOptionsMenu(Menu menu) {
             // Inflate the menu; this adds items to the action bar if it is present.
-            getMenuInflater().inflate(R.menu.menu_first_open_glproject, menu);
+            getMenuInflater().inflate(R.menu.menu_main, menu); //not sure if correct
             return true;
         }
 

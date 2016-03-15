@@ -14,8 +14,13 @@ import java.nio.ShortBuffer;
 import java.util.ArrayList;
 
 class GroupObject  extends Model {
-
     String objectName;
+
+    public GroupObject(){
+
+    }
+
+
 
     public void setObjectName(String string) {
         this.objectName = string;
@@ -31,7 +36,8 @@ class GroupObject  extends Model {
 private Context context;
 private int modelID;
 
-    public Model(int modelID, Context activity) {
+
+    public int Model (int modelID, Context activity) {       // return type is int
         this.vertices = new ArrayList<Model.Vector3D>();
         this.vertexTexture = new ArrayList<Model.Vector3D>();
         this.vertexNormal = new ArrayList<Model.Vector3D>();
@@ -39,6 +45,7 @@ private int modelID;
 
         this.groupObjects = new ArrayList<GroupObject>();
 
+        //this.modelID = modelID;
         this.modelID = modelID;
         this.context = activity;
 
@@ -46,8 +53,10 @@ private int modelID;
     }
 
     private int loadFile() {
-        InputStream inputStream = context.getResources().openRawResource(
-                modelID);
+
+       InputStream inputStream = context.getResources().openRawResource(
+                       modelID);
+
 
         BufferedReader in = new BufferedReader(new InputStreamReader(
                 inputStream));
